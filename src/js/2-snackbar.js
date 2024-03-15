@@ -50,7 +50,9 @@ buttonnotification.addEventListener('click', () => {
     
     delayMs = parseInt(amountOfMs);
 
-  const promise = new Promise((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
+        event.preventDefault();
+        
     setTimeout(() => {
       if (go == 'fulfilled') {
         resolve(`Fulfilled promise in ${amountOfMs}ms`);
@@ -71,9 +73,12 @@ buttonnotification.addEventListener('click', () => {
     .then(message => {
       iziToast.show({
         color: 'green',
-        message: `Rejected promise in ${amountOfMs}ms`,
+        message: `Fulfilled promise in ${amountOfMs}ms`,
         position: 'topCenter',
       });
+        inputOfDelay.value = '';
+            radioInFulfilled.checked = false;
+            radioInRejected.checked = false;
     })
     .catch(error => {
       iziToast.show({
