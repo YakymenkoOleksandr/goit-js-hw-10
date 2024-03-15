@@ -11,29 +11,28 @@ let go = '';
 let stop = '';
 let delayMs;
 
-
 inputOfDelay.addEventListener('change', () => {
-    amountOfMs = inputOfDelay.value;
-    checkInputValidity(); 
+  amountOfMs = inputOfDelay.value;
+  checkInputValidity();
 });
 
 function checkInputValidity() {
-    amountOfMs = inputOfDelay.value;
-    if (amountOfMs === '') {
-        iziToast.show({
-            color: 'yellow',
-            message: `Будь ласка, введіть значення в поле Delay (ms)`,
-            position: 'topCenter',
-        });
-    } else if (amountOfMs < 0) {
-        iziToast.show({
-            color: 'yellow',
-            message: `Delay (ms) має бути 0 або більше`,
-            position: 'topCenter',
-        });
-    } else {
-        delayMs = parseInt(amountOfMs);
-    }
+  amountOfMs = inputOfDelay.value;
+  if (amountOfMs === '') {
+    iziToast.show({
+      color: 'yellow',
+      message: `Будь ласка, введіть значення в поле Delay (ms)`,
+      position: 'topCenter',
+    });
+  } else if (amountOfMs < 0) {
+    iziToast.show({
+      color: 'yellow',
+      message: `Delay (ms) має бути 0 або більше`,
+      position: 'topCenter',
+    });
+  } else {
+    delayMs = parseInt(amountOfMs);
+  }
 }
 
 radioInFulfilled.addEventListener('change', () => {
@@ -43,16 +42,14 @@ radioInFulfilled.addEventListener('change', () => {
 
 radioInRejected.addEventListener('change', () => {
   stop = radioInRejected.value;
-  
 });
 
 buttonnotification.addEventListener('click', () => {
-    
-    delayMs = parseInt(amountOfMs);
+  delayMs = parseInt(amountOfMs);
 
-    const promise = new Promise((resolve, reject) => {
-        event.preventDefault();
-        
+  const promise = new Promise((resolve, reject) => {
+    event.preventDefault();
+
     setTimeout(() => {
       if (go == 'fulfilled') {
         resolve(`Fulfilled promise in ${amountOfMs}ms`);
@@ -76,9 +73,9 @@ buttonnotification.addEventListener('click', () => {
         message: message,
         position: 'topCenter',
       });
-        inputOfDelay.value = '';
-            radioInFulfilled.checked = false;
-            radioInRejected.checked = false;
+      inputOfDelay.value = '';
+      radioInFulfilled.checked = false;
+      radioInRejected.checked = false;
     })
     .catch(error => {
       iziToast.show({
@@ -86,8 +83,8 @@ buttonnotification.addEventListener('click', () => {
         message: error,
         position: 'topCenter',
       });
+        inputOfDelay.value = '';
+      radioInFulfilled.checked = false;
+      radioInRejected.checked = false;
     });
 });
-
-
-
