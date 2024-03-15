@@ -49,12 +49,12 @@ radioInRejected.addEventListener('change', () => {
 buttonnotification.addEventListener('click', () => {
     
     delayMs = parseInt(amountOfMs);
-    
+
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (go === 'fulfilled') {
+      if (go == 'fulfilled') {
         resolve(`Fulfilled promise in ${amountOfMs}ms`);
-      } else if (stop === 'rejected') {
+      } else if (stop == 'rejected') {
         reject(`Rejected promise in ${amountOfMs}ms`);
       } else if (!go && !stop) {
         iziToast.show({
@@ -71,14 +71,14 @@ buttonnotification.addEventListener('click', () => {
     .then(message => {
       iziToast.show({
         color: 'green',
-        message,
+        message: `Rejected promise in ${amountOfMs}ms`,
         position: 'topCenter',
       });
     })
     .catch(error => {
       iziToast.show({
         color: 'red',
-        message: error,
+        message: `Rejected promise in ${amountOfMs}ms`,
         position: 'topCenter',
       });
     });
