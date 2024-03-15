@@ -23,3 +23,40 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+.timer {
+  display: flex;
+  font-size: 30px;
+}
+
+.value {
+  margin: 0 auto;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0 auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  gap: 10px;
+  width: 250px;
+}
+
+.ms {
+  height: 25px;
+  width: 240px;
+}
+
+
