@@ -80,7 +80,7 @@ buttonnotification.addEventListener('click', () => {
     .catch(error => {
       iziToast.show({
         color: 'red',
-        message: error,
+        message: `Rejected promise in ${amountOfMs}ms`,
         position: 'topCenter',
       });
         inputOfDelay.value = '';
